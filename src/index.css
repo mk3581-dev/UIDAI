@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Government Portal Color Scheme */
+    --background: 0 0% 100%;
+    --foreground: 220 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 15%;
+
+    /* Navy Blue - Primary Government Color */
+    --primary: 213 50% 23%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Ash Grey - Secondary */
+    --secondary: 210 10% 94%;
+    --secondary-foreground: 220 25% 15%;
+
+    /* Muted - Light grey sections */
+    --muted: 210 15% 96%;
+    --muted-foreground: 220 10% 45%;
+
+    /* Saffron Accent - Indian flag inspired */
+    --accent: 30 90% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Green accent - subtle */
+    --success: 142 45% 35%;
+    --success-foreground: 0 0% 100%;
+
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 20% 88%;
+    --input: 210 20% 88%;
+    --ring: 213 50% 23%;
+
+    --radius: 0.375rem;
+
+    /* Government Section Colors */
+    --gov-header: 213 55% 18%;
+    --gov-header-foreground: 0 0% 100%;
+    --gov-nav: 213 50% 23%;
+    --gov-section-alt: 210 15% 97%;
+    --gov-footer: 220 25% 12%;
+    --gov-footer-foreground: 210 15% 85%;
+
+    /* Chart Colors */
+    --chart-1: 213 50% 35%;
+    --chart-2: 30 85% 55%;
+    --chart-3: 142 45% 40%;
+    --chart-4: 200 60% 45%;
+    --chart-5: 280 45% 50%;
+
+    /* Sidebar */
+    --sidebar-background: 210 15% 97%;
+    --sidebar-foreground: 220 25% 15%;
+    --sidebar-primary: 213 50% 23%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 15% 92%;
+    --sidebar-accent-foreground: 220 25% 15%;
+    --sidebar-border: 210 20% 88%;
+    --sidebar-ring: 213 50% 23%;
+  }
+
+  .dark {
+    --background: 220 25% 8%;
+    --foreground: 210 15% 95%;
+
+    --card: 220 25% 12%;
+    --card-foreground: 210 15% 95%;
+
+    --popover: 220 25% 12%;
+    --popover-foreground: 210 15% 95%;
+
+    --primary: 210 50% 60%;
+    --primary-foreground: 220 25% 8%;
+
+    --secondary: 220 20% 18%;
+    --secondary-foreground: 210 15% 95%;
+
+    --muted: 220 20% 15%;
+    --muted-foreground: 210 15% 65%;
+
+    --accent: 30 80% 55%;
+    --accent-foreground: 220 25% 8%;
+
+    --destructive: 0 60% 45%;
+    --destructive-foreground: 210 15% 95%;
+
+    --border: 220 20% 20%;
+    --input: 220 20% 20%;
+    --ring: 210 50% 60%;
+
+    --gov-header: 220 30% 12%;
+    --gov-header-foreground: 210 15% 95%;
+    --gov-nav: 220 25% 15%;
+    --gov-section-alt: 220 25% 10%;
+    --gov-footer: 220 30% 6%;
+    --gov-footer-foreground: 210 15% 70%;
+
+    --sidebar-background: 220 25% 10%;
+    --sidebar-foreground: 210 15% 95%;
+    --sidebar-primary: 210 50% 60%;
+    --sidebar-primary-foreground: 220 25% 8%;
+    --sidebar-accent: 220 20% 15%;
+    --sidebar-accent-foreground: 210 15% 95%;
+    --sidebar-border: 220 20% 18%;
+    --sidebar-ring: 210 50% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Noto Sans', system-ui, -apple-system, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  /* Government Header Gradient */
+  .gov-header {
+    @apply bg-gov-header text-gov-header-foreground;
+    background: linear-gradient(180deg, hsl(var(--gov-header)) 0%, hsl(213 55% 15%) 100%);
+  }
+
+  /* Government Navigation */
+  .gov-nav {
+    @apply bg-gov-nav text-white;
+  }
+
+  /* Statistics Card */
+  .stat-card {
+    @apply bg-card rounded-md border p-6 shadow-sm transition-shadow hover:shadow-md;
+  }
+
+  /* Section with alternate background */
+  .section-alt {
+    @apply bg-gov-section-alt;
+  }
+
+  /* Chat Message Styles */
+  .chat-citizen {
+    @apply bg-secondary text-secondary-foreground rounded-lg p-4;
+  }
+
+  .chat-system {
+    @apply bg-primary/5 border-l-4 border-primary rounded-r-lg p-4;
+  }
+
+  /* Government Button */
+  .gov-button {
+    @apply bg-primary text-primary-foreground font-medium px-6 py-3 rounded-md 
+           hover:bg-primary/90 transition-colors shadow-sm;
+  }
+
+  .gov-button-outline {
+    @apply border-2 border-primary text-primary font-medium px-6 py-3 rounded-md 
+           hover:bg-primary hover:text-primary-foreground transition-colors;
+  }
+
+  /* Government Footer */
+  .gov-footer {
+    @apply bg-gov-footer text-gov-footer-foreground;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
